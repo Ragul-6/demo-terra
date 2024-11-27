@@ -1,29 +1,20 @@
 pipeline {
     agent any
-
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                git 'https://github.com/Ragul-6/demo-terra.git'
+                echo 'Building...'
             }
         }
-        
-        stage('Terraform Init') {
+        stage('Test') {
             steps {
-                sh 'terraform init'
+                echo 'Testing...'
             }
         }
-        
-        stage('Terraform Plan') {
+        stage('Deploy') {
             steps {
-                sh 'terraform plan'
+                echo 'Deploying...'
             }
-        }
-        
-        stage('Terraform Apply') {
-            steps {
-                sh 'terraform apply -auto-approve'
-            }
-        }
+        }   
     }
 }
